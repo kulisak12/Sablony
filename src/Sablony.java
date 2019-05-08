@@ -13,7 +13,7 @@ public class Sablony {
 	}
 	
 	public static String performReplacement(Scanner input, Variables vars) {
-		String result = new String();
+		StringBuilder result = new StringBuilder();
 		Pattern varDelimiter = Pattern.compile("\\{\\{ \\w+ \\}\\}");
 		
 		while (input.hasNextLine()) {
@@ -21,17 +21,18 @@ public class Sablony {
 			Matcher matcher = varDelimiter.matcher(line);
 			
 			while (matcher.find()) {
-				String varName = matcher.group(0);
-				varName = extractVarName(varName);
+				String varName = extractVarName(matcher.group(0));
 				String varValue = vars.vars.get(varName);
 				
 				line = matcher.replaceFirst(varValue);
 				matcher = varDelimiter.matcher(line);
 			}
-			result += line + "\n";
+			
+			result.append(line);
+			result.append("\n");
 		}
 		
-		return result;
+		return result.toString();
 	}
 	
 	private static String extractVarName(String var) {
