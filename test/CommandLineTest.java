@@ -6,7 +6,7 @@ import java.util.Map;
 import org.junit.Test;
 
 
-public class TemplatesTest {
+public class CommandLineTest {
 	
 	@Test
 	public void noVar() {

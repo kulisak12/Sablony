@@ -24,11 +24,13 @@ public class Csv {
 		int templateNumber = 1;
 		while (varCsv.hasNextLine()) {
 			Scanner template = new Scanner(new File(settings.templateFilename));
+			// set vars
 			String[] varValues = getNextLineTokens(varCsv);
 			for (int i = 0; i < varValues.length; i++) {
 				vars.put(varNames[i], varValues[i]);
 			}
 			
+			// write to output file
 			String filename = String.format(settings.outFilename, templateNumber);
 			templateNumber++;
 			FileWriter outputFile = new FileWriter(new File(filename));
