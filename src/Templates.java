@@ -1,19 +1,12 @@
+import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Templates {
-
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		Variables vars = new Variables(args);
-		
-		String output = performReplacement(input, vars);
-		System.out.println(output);
-	}
 	
 	// replace vars with values
-	public static String performReplacement(Scanner input, Variables vars) {
+	public static String performReplacement(Scanner input, Map<String, String> vars) {
 		StringBuilder result = new StringBuilder();
 		Pattern varDelimiter = Pattern.compile("\\{\\{ [\\w ]+ \\}\\}"); // {{ var }}
 		
@@ -24,7 +17,7 @@ public class Templates {
 			// replace next var
 			while (matcher.find()) {
 				String varName = extractVarName(matcher.group(0));
-				String varValue = vars.vars.get(varName);
+				String varValue = vars.get(varName);
 				
 				line = matcher.replaceFirst(varValue);
 				matcher = varDelimiter.matcher(line); // repeat
