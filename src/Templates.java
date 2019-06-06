@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Sablony {
+public class Templates {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
