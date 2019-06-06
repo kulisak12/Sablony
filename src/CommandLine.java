@@ -5,11 +5,12 @@ import java.util.Map;
 // loads variables from the command line
 public class CommandLine {
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+		Scanner template = new Scanner(System.in);
 		Map<String, String> vars = createVarMap(args);
 		
-		String output = Templates.performReplacement(input, vars);
+		String output = Templates.performReplacement(template, vars);
 		System.out.println(output);
+		template.close();
 	}
 
 	// maps var names to their values
