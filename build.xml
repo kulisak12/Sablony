@@ -77,7 +77,13 @@
         <jar destfile="cmd.jar">
             <fileset dir="out/classes" includes="**/*.class" />
             <manifest>
-                <attribute name="Main-Class" value="cz.alisma.alej.text.wrapping.WrapAndAlign" />
+                <attribute name="Main-Class" value="CommandLine" />
+            </manifest>
+        </jar>
+		<jar destfile="csv.jar">
+            <fileset dir="out/classes" includes="**/*.class" />
+            <manifest>
+                <attribute name="Main-Class" value="Csv" />
             </manifest>
         </jar>
     </target>
