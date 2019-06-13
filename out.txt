@@ -1,4 +1,0 @@
-Od: Dodavatel elektřtiny
-Pro: {{ zakaznik }}
-tot vse
-
